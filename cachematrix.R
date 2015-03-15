@@ -4,25 +4,25 @@
 
 ## Returns a list containing functions to set and retrieve the input matrix
 ## and its inverse. It follows the list of returned methods:
-##  * get()         : returns the input matrix
-##  * set()         : replaces che initial matrix with a new one. **NOTE**
-##                    This operation deletes the cached inverse matrix, if
-##                    present
+##  * get()        : returns the input matrix
+##  * set(y)       : replaces che initial matrix with a new one. **NOTE**
+##                   This operation deletes the cached inverse matrix, if
+##                   present
 ##  * getinverse() : returns cached inverse matrix if present, `NULL` otherwise
-##  * setinverse() : sets the value of the cached inverse matrix to a new one
+##  * setinverse(i): sets the value of the cached inverse matrix to a new one
 
 makeCacheMatrix <- function(x = matrix()) {
   
   inv <- NULL
   
-  set <- function(new.matrix) {
-      x <<- new.matrix
+  set <- function(y) {
+      x <<- y
       inv <<- NULL
   }
   
   get <- function() x
   
-  setinverse <- function(inverse) inv <<- inverse
+  setinverse <- function(i) inv <<- i
 
   getinverse <- function() inv
   
